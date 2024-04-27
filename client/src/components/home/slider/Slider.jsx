@@ -48,7 +48,7 @@ const Slider = () => {
       <AliceCarousel
         mouseTracking
         items={items.map((item, index) => (
-          <div key={item.key} className={index === 1 ? "central-item" : ""}>
+          <div key={item.key} className={index === 2 ? "central-item" : ""}>
             <Image
               src={item.imageSrc}
               onDragStart={handleDragStart}

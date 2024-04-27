@@ -16,6 +16,7 @@ const Signup = () => {
   const [sigupData, setSignupData] = useState({
     name: "",
     email: "",
+    age: "",
     password: "",
   });
 
@@ -112,7 +113,16 @@ const Signup = () => {
                     name="email"
                   />
                 </Form.Group>
-
+                <Form.Group controlId="validEmail">
+                  <Form.Label>Age</Form.Label>
+                  <Form.Control
+                    required
+                    type="age"
+                    onChange={handleChange}
+                    placeholder="Age"
+                    name="age"
+                  />
+                </Form.Group>
                 <Form.Group controlId="validPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control

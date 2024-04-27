@@ -2,8 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import List from "@mui/material/List";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const images = [
   {
@@ -33,8 +35,8 @@ export default function SwipeableTemporaryDrawer() {
     right: false,
   });
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [drawerWidth, setDrawerWidth] = useState(700); // Increased drawer width
+  const [activeIndexes, setActiveIndexes] = useState([0, 0, 0]);
+  const [drawerWidth, setDrawerWidth] = useState(400); // Adjust drawer width here
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -48,90 +50,88 @@ export default function SwipeableTemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  const handlePrev = (index) => {
+    setActiveIndexes((prevIndexes) =>
+      prevIndexes.map((prevIndex, i) =>
+        i === index
+          ? prevIndex === 0
+            ? images.length - 1
+            : prevIndex - 1
+          : prevIndex
+      )
     );
   };
 
-  const handleNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  const handleNext = (index) => {
+    setActiveIndexes((prevIndexes) =>
+      prevIndexes.map((prevIndex, i) =>
+        i === index ? (prevIndex + 1) % images.length : prevIndex
+      )
     );
   };
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  useEffect(() => {
-    const singleImageWidth = 500; // Increased image width
-    const newDrawerWidth = singleImageWidth;
-    setDrawerWidth(newDrawerWidth);
-  }, []);
-
-  const handleKeyDown = (event) => {
-    if (event.key === "ArrowLeft") {
-      handlePrev();
-    } else if (event.key === "ArrowRight") {
-      handleNext();
-    }
-  };
-
-  const list = (anchor) => (
+  const list = (anchor, carouselIndex) => (
     <Box
-      sx={{ width: drawerWidth, padding: "20px 0" }}
+      key={carouselIndex}
+      sx={{ width: drawerWidth, padding: "10px 0" }} // Adjusted padding
       role="presentation"
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {state[anchor] && (
-          <div
-            className="image-carousel"
-            style={{
-              display: "flex",
-              gap: "20px",
-              overflowX: "auto",
-            }}
-          >
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className={`carousel-slide ${
-                  index === activeIndex ? "active" : ""
-                }`}
-                style={{
-                  width: `${drawerWidth}px`,
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                  flexShrink: 0,
-                  padding: index === activeIndex ? "20px" : "0", // Increased padding for the active slide
-                }}
-              >
-                <img
-                  src={image.imgPath}
-                  alt={image.label}
-                  style={{
-                    width: "100%",
-                    borderRadius: "8px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => setActiveIndex(index)}
-                />
-              </div>
-            ))}
+        {carouselIndex === 0 && ( // Display "Make a Fit!" only for the first carousel
+          <div>
+            <Box textAlign="center" mb={2}>
+              <h2>Make a Fit!</h2>
+            </Box>
           </div>
         )}
+        <div
+          className="image-carousel"
+          style={{
+            display: "flex",
+            justifyContent: "space-between", // Added space between buttons
+            alignItems: "center",
+            overflowX: "hidden", // Removed horizontal overflow
+          }}
+        >
+          <Button
+            onClick={() => handlePrev(carouselIndex)}
+            variant="contained"
+            startIcon={<NavigateBeforeIcon />}
+            sx={{ minWidth: "20px", padding: "2px", marginRight: "4px" }} // Smaller button size
+          />
+          <div
+            className={`carousel-slide active`}
+            style={{
+              width: `${drawerWidth - 80}px`, // Adjusted width for buttons and padding
+              borderRadius: "8px",
+              overflow: "hidden",
+              flexShrink: 0,
+              padding: "10px", // Adjusted padding
+            }}
+          >
+            <img
+              src={images[activeIndexes[carouselIndex]].imgPath}
+              alt={images[activeIndexes[carouselIndex]].label}
+              style={{
+                width: "100%",
+                borderRadius: "8px",
+              }}
+            />
+          </div>
+          <Button
+            onClick={() => handleNext(carouselIndex)}
+            variant="contained"
+            endIcon={<NavigateNextIcon />}
+            sx={{ minWidth: "20px", padding: "2px" }} // Smaller button size
+          />
+        </div>
       </List>
     </Box>
   );
 
   return (
     <div>
-      {["right"].map((anchor) => (
+      {["right"].map((anchor, index) => (
         <React.Fragment key={anchor}>
           <SwipeableDrawer
             anchor={anchor}
@@ -139,7 +139,7 @@ export default function SwipeableTemporaryDrawer() {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           >
-            {list(anchor)}
+            {[0, 1, 2].map((carouselIndex) => list(anchor, carouselIndex))}
           </SwipeableDrawer>
           <Button onClick={toggleDrawer(anchor, true)}>Match Fit</Button>
         </React.Fragment>

@@ -207,7 +207,7 @@ const ProductInfo = ({ productDetails }) => {
   // console.log("product", productDetails);
   return (
     <div className="productinfo-wrapper">
-      <ImageCarousel />
+      
       <Row className="card-row">
         <Col md={6} sm={12} className="product-gallery">
           <div>
@@ -235,25 +235,33 @@ const ProductInfo = ({ productDetails }) => {
                 <span>₹</span>
                 <h3>{productDetails?.price}</h3>
               </div>
+              
               <p className="actual-price">₹1299</p>
               <h4 className="offer-percentage">65% OFF</h4>
+              
             </div>
             <div className="inclusive-tax-text">inclusive of all taxes</div>
             <div className="tags">
               <p className="tag-offer">BUY 3 FOR 999</p>
               <p className="tag-fabric">100% COTTON</p>
+              <ImageCarousel />
+              
             </div>
-            <div className="tribe-text">
+            {/* <div className="tribe-text">
               TriBe members get an extra discount of ₹30 and FREE shipping.
-            </div>
+            </div> */}
             <div className="colour-options-text">
               <h5>COLOUR OPTIONS:</h5>&nbsp;&nbsp;&nbsp;
               <span>{productDetails?.color}</span>
+              
             </div>
+            
             <div
               className="multi-color-block"
               style={{ backgroundColor: `${productDetails?.color}` }}
+              
             ></div>
+            
             <div>
               <h2 className="select-size-title">Select Size</h2>
             </div>
