@@ -1,0 +1,124 @@
+.login-container{
+ /* height: calc(100%-78px); */
+/* margin-top: 1%;/ */
+      width: 100%;
+}
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    height: calc(100vh - 79px);
+}
+.login-welcome-text {
+    font-size: 29px;
+    color: #000;
+    margin: 6% 0 0 5%;
+    letter-spacing: 0.59px;
+    line-height: 1.33;
+    font-weight: 700;
+    padding-bottom: 25px;
+}
+.login-welcome-img {
+    padding: 30px 30px 0;
+    width: 100%;
+}
+.login-section {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.login-section .login-text {
+    font-size: 24px;
+    color: #000;
+    margin: 2% 1% 0 2%;
+    letter-spacing: 0.59px;
+    line-height: 1.33;
+    font-weight: 550;
+    text-align: center;
+}
+.login-section .login-para {
+    font-size: 18px;
+    color: #a0a0a0;
+    margin-bottom: 5% !important;
+    line-height: 1.44;
+    text-align: center;
+}
+.form-label{
+    display: block;
+    height: 31%;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 3% 0;
+}
+.form-control{
+    width: 100%;
+    height: 5%;
+    margin: 1% 0;
+    padding: 3%;
+    border: 1px solid #979797 !important;
+    border-radius: 2%;
+}
+
+.login-section .login-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    letter-spacing: 0.5px;
+    background-color: #42a2a2;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 550;
+  }
+  .login-section .login-btn:hover {
+    background-color: #5cb4b4;
+    cursor: pointer;
+  }
+  .options-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+    color: #07d8d8;
+    cursor: pointer;
+  }
+
+
+  @media (max-width: 767px) {
+    .login-welcome-img {
+      display: none;
+    }
+    .welcome-section {
+      height: 50px;
+    }
+    .login-section .login-para {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+    .login-section {
+        margin: 10%;
+    }
+    .login-welcome-text {
+      margin: 3% 0 0 5%;
+      font-size: 25px;
+      text-align: center;
+    }
+    .login-section .login-text {
+      margin: 3% 0 0 2%;
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 460px) {
+    .login-section .login-text {
+      margin: 6% 0 0 2%;
+      font-size: 17px;
+    }
+     .login-welcome-text {
+      margin: 3% 0 0 6%;
+      font-size: 18px;
+    }
+  }

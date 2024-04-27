@@ -1,0 +1,34 @@
+.checkout-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: #CDD1E0;
+}
+.checkout-container{
+    width: 60%;
+    border: 1px solid black;
+    padding: 45px;
+    border-radius: 15px;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+.deliver-title{
+    font-weight: 700;
+    font-size: 20px;
+}
+.checkout-label{
+    color: #a5a5a5;
+    font-weight: 700;
+}
+.checkout-input{
+    border: 1px solid #dadbdc !important;
+    font-weight: 400;
+}
+.buy-btn{
+margin: 15px;
+width: 50%;
+}
