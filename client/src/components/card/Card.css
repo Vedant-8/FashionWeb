@@ -1,0 +1,95 @@
+.card-wrapper {
+  display: flex;
+  width: 250px;
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+.product-card-img-container {
+  width: 230px;
+  height: 300px;
+}
+.product-card-img {
+  width: 250px;
+  height: 300px !important;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.product-card-img {
+  transition: all 0.2s ease-in-out 0s;
+  object-fit: fill;
+}
+.product-card-img:hover {
+  transform: scale(1.06);
+  background-color: rgb(249, 247, 246);
+}
+.product-naming {
+  font-size: 18px;
+}
+.product-card-detail {
+  width: 100%;
+  padding: 8px 0 0;
+  max-height: 100px;
+  min-height: 82px;
+  overflow: hidden;
+  position: relative;
+}
+.product-card-detail .product-naming {
+  overflow-x: hidden;
+  width: 70%;
+}
+.product-card-detail .product-naming .brand-name {
+  color: #4f5362;
+  text-transform: capitalize;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 550;
+}
+.product-card-detail .product-naming .name {
+  margin-top: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 12px !important;
+  line-height: 12px !important;
+  color: #737373 !important;
+}
+.product-price-box .discounted-price-text {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+.product-price-box .discounted-price-text span {
+  font-size: 12px;
+  line-height: normal;
+}
+.product-price-box .actual-price-text {
+  padding-left: 7px;
+  text-decoration: line-through;
+  font-size: 9px;
+  line-height: 15px;
+  padding-top: 2px;
+}
+.product-price-box .actual-price-text span {
+  font-size: 9px;
+  line-height: normal;
+}
+.product-price-box .discount-percent {
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 15px;
+  padding-top: 2px;
+  color: green;
+}
+@media (max-width: 480px) {
+  .card-col {
+    width: max-content !important;
+    flex-wrap: wrap;
+  }
+}

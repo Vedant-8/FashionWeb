@@ -1,0 +1,23 @@
+.error-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+.error-wrapper img{
+    width: 800px;
+}
+
+@media only screen and (max-width: 720px)
+{
+    .error-wrapper img{
+        width: 450px;
+    }
+}
+@media only screen and (max-width: 420px)
+{
+    .error-wrapper img{
+        width: 300px;
+    }
+}

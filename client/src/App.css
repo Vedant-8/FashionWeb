@@ -1,0 +1,41 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@400;600&family=Vollkorn:ital@1&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;700&family=Poppins:wght@400;600&family=Vollkorn:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@400;600&family=Vollkorn:ital@1&display=swap'); */
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600&family=Vollkorn:ital@1&display=swap");
+
+body {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.header-wrapper {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: 100%;
+ position: fixed;
+ top: 0;
+ background-color: white;
+ z-index: 9;
+}
+.header-container{
+  width: 100%;
+  display: flex;
+}
+
+.routes-container{
+  margin-top: 80px;
+}

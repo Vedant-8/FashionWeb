@@ -1,0 +1,111 @@
+.orders-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.orders-container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.orders-title{
+    font-size: 24px;
+    font-weight: 600;
+}
+.order-back-to-acc-btn{
+    width: 250px;
+    background-color: transparent !important;
+    color: #51cccc !important;
+    margin: 5px 0;
+}
+.order-item-wrapper{
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid rgba(232, 229, 229, 0.749);
+    border-radius: 10px;
+    padding: 12px;
+}
+.order-no{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0,0,0,.7);
+}
+.order-no span{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.order-item-container{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.order-item-image{
+    width: 100px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.order-item-details-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.order-item-name, .order-item-size{
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+.order-item-status{
+    background-color: #e7ffeb;
+    border-radius: 3px;
+    color: #128a27;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .08px;
+    line-height: normal;
+    margin-bottom: 8px;
+    padding: 4px 6px;
+    text-transform: uppercase;
+    width: fit-content;
+}
+.empty-orders-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 45px;
+}
+.empty-orders-title{
+    font-size: 20px;
+    font-weight: 550;
+    color: rgba(24,24,24,.6);
+}
+.orders-container hr{
+    float: left;
+    width: 100%;
+    margin: 2px 0 ;
+    height: 3px;
+    max-width: 100px;
+    background: #ffc402;
+    color: #ffc402;
+}
+.empty-orders-image{
+    width: 20%;
+    min-width: 200px;
+}
+.empty-orders-btn{
+    background-color: transparent !important;
+    color: #51cccc;
+    border: 1px solid #51cccc;
+}
+.empty-orders-btn:hover{
+    color: #51cccc !important;
+    border: 1px solid #51cccc !important;
+}

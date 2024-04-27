@@ -1,0 +1,41 @@
+.topBar-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #EEEEEE;
+}
+.topBar-container{
+    height: 30px;
+    width: 75%;
+    font-size: 10px;
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0,0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+   
+}
+.topBar-items{
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    cursor:default;
+    margin: 0;
+}
+/* .right-items{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    cursor: pointer;
+} */
+@media screen and (max-width:992px)
+{
+    .topBar-container{
+        display: none;
+        background-color: pink;
+    }
+}

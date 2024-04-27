@@ -1,0 +1,139 @@
+.footer-wrapper {
+  width: 100%;
+  display: flex;
+  height: calc(100vh-509px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-wrapper {
+    font-size: 11px;
+    background: #181818;
+    padding: 40px 0;
+    line-height: 18px;
+    margin-top: 30px;
+  }
+  .footer-container{
+    border-bottom: 2px solid #979797;
+    margin:0 15%;
+  }
+  .footer-logo {
+    max-height: 52px;
+    line-height: 52px;
+    overflow-y: hidden;
+  }
+  .row{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  .footer-logo a {
+    max-height: 52px;
+    line-height: 52px;
+    overflow-y: hidden;
+    display: inline-block;
+    color: #fdd835;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .footer-wrapper .menu-section .footer-title {
+    color: #fdd835;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    display: block;
+    font-weight: 500;
+  }
+  .footer-wrapper .menu-section ul li a {
+    color: hsla(0, 0%, 100%, 0.9);
+    line-height: 24px;
+    display: inline-block;
+  }
+  
+  .footer-wrapper .menu-section ul li a svg {
+    font-size: 14px;
+  }
+  
+  .footer-wrapper .menu-section ul li a span {
+    margin-left: 7px;
+  }
+  .footer-wrapper .menu-section form input {
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fdd835;
+    width: 55%;
+    height: 34px;
+    color: #fff;
+  }
+  .footer-wrapper .menu-section form .subs-btn {
+    width: 45%;
+    background: #fdd835;
+    border: 1px solid #fdd835;
+    height: 34px;
+    color: #000;
+    padding: 0;
+  }
+  .footer-wrapper .payment-gateway {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .footer-wrapper ul li a {
+    color: hsla(0, 0%, 100%, 0.9) !important;
+    line-height: 24px;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+  
+  }
+  .footer-wrapper ul li a:hover{
+    color: #fdd835 !important;
+    margin-left: 2px;
+  
+  }
+  .footer-wrapper .payment-gateway ul li {
+    margin: 10px 0px;
+  }
+  .footer-wrapper .payment-gateway svg {
+    font-size: 14px;
+    margin-right: 6px;
+  }
+  .footer-wrapper .payment-gateway .download-app{
+    display: flex;
+  }
+  
+  .footer-wrapper .payment-gateway .download-app a {
+    display: inline-block;
+    padding-right: 0;
+    margin-right: 6px;
+  }
+  .footer-container img{
+    color: hsla(0, 0%, 100%, 0.9);;
+  }
+  
+  @media only screen and (max-width: 767px) {
+   
+    .footer-wrapper .menu-section {
+      margin-top: 15px !important;
+    }
+    .footer-wrapper .menu-section .footer-title {
+      margin-bottom: 14px;
+    }
+    .row{
+      flex-direction: column;
+      text-align: center;
+    }
+    .download-app{
+      justify-content: center;
+    }
+  }
+  
+  @media only screen and (max-width: 420px) {
+    .footer-wrapper .footer-logo {
+      text-align: center;
+    }
+    .footer-wrapper .menu-section {
+      text-align: center;
+    }
+  }
