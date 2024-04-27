@@ -22,9 +22,10 @@ import { useAccessToken } from "../../../contextApi/AccessTokenContext";
 import { ToasterMessage } from "../../../../helper/toastHelper";
 import { useCartItems } from "../../../contextApi/CartItemsContext";
 import { Typography } from "@mui/material";
-//for drawer
+
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import Buutton from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -33,7 +34,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+
+import Usp from "./usp";
+
 const ProductInfo = ({ productDetails }) => {
+  // console.log(productDetails);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -53,35 +58,7 @@ const ProductInfo = ({ productDetails }) => {
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <div>Aapna corsoul</div>
-    </Box>
-  );
-
-  return (
-    <div>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
-    </div>
-  );
-  // console.log(productDetails);
+  <Usp />;
 
   const baseURL = useBaseApi();
   const navigate = useNavigate();
@@ -261,112 +238,132 @@ const ProductInfo = ({ productDetails }) => {
   // console.log('accessToken', accessToken);
   // console.log("product", productDetails);
   return (
-    <div className="productinfo-wrapper">
-      <Row className="card-row">
-        <Col md={6} sm={12} className="product-gallery">
-          <div>
-            <ImageGallery
-              items={images}
-              thumbnailPosition="left"
-              useBrowserFullscreen={false}
-              showPlayButton={false}
-              slideOnThumbnailOver={true}
-              showFullscreenButton={false}
-              loading="lazy"
-            />
-          </div>
-        </Col>
-        <Col md={5} sm={12} className="details-wrapper">
-          <div className="details-container">
-            <h3 className="brand-name">{productDetails?.brand}</h3>
-            <h3 className="product-name">{productDetails?.name}</h3>
-            <div className="ratings">
-              &#11088;{productDetails?.ratings.toFixed(2)}
-            </div>
+    <div>
+      <div className="fixed top-0 right-0 z-50 flex flex-col items-end">
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <Buutton
+              className="float-right mt-2 mr-2"
+              onClick={toggleDrawer(anchor, true)}
+            >
+              Match Fit
+            </Buutton>
+            <SwipeableDrawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+              onOpen={toggleDrawer(anchor, true)}
+            >
+              {list(anchor)}
+            </SwipeableDrawer>
+          </React.Fragment>
+        ))}
+      </div>
 
-            <div className="price-section">
-              <div className="selling-price">
-                <span>₹</span>
-                <h3>{productDetails?.price}</h3>
-              </div>
-              <p className="actual-price">₹1299</p>
-              <h4 className="offer-percentage">65% OFF</h4>
-            </div>
-            <div className="inclusive-tax-text">inclusive of all taxes</div>
-            <div className="tags">
-              <p className="tag-offer">BUY 3 FOR 999</p>
-              <p className="tag-fabric">100% COTTON</p>
-            </div>
-            <div className="tribe-text">
-              TriBe members get an extra discount of ₹30 and FREE shipping.
-            </div>
-            <div className="colour-options-text">
-              <h5>COLOUR OPTIONS:</h5>&nbsp;&nbsp;&nbsp;
-              <span>{productDetails?.color}</span>
-            </div>
-            <div
-              className="multi-color-block"
-              style={{ backgroundColor: `${productDetails?.color}` }}
-            ></div>
+      <div className="productinfo-wrapper">
+        <Row className="card-row">
+          <Col md={6} sm={12} className="product-gallery">
             <div>
-              <h2 className="select-size-title">Select Size</h2>
+              <ImageGallery
+                items={images}
+                thumbnailPosition="left"
+                useBrowserFullscreen={false}
+                showPlayButton={false}
+                slideOnThumbnailOver={true}
+                showFullscreenButton={false}
+                loading="lazy"
+              />
             </div>
-            <div className="size-container">
-              {productDetails?.size?.map((item, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={`size-item ${
-                      size === item ? "size-border" : ""
-                    }`}
-                    onClick={(e) => handleSizeChange(item, e)}
-                    // style={size ? {backgroundColor:'yellow'} : {backgroundColor:"white"}}
-                  >
-                    {item}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="button-wrapper">
-              {accessToken &&
-              cartItems
-                ?.map((item) => item.product?._id)
-                .includes(productDetails?._id) ? (
-                <Button className="add-to-bag" onClick={handleGoToBag}>
-                  <LocalMallTwoToneIcon />
-                  <span>GO TO BAG</span>
-                </Button>
-              ) : (
-                <Button className="add-to-bag">
-                  <LocalMallOutlinedIcon className="bag-icon" />
-                  <span onClick={handleAddItemToCart}>ADD TO BAG</span>
-                </Button>
-              )}
+          </Col>
+          <Col md={5} sm={12} className="details-wrapper">
+            <div className="details-container">
+              <h3 className="brand-name">{productDetails?.brand}</h3>
+              <h3 className="product-name">{productDetails?.name}</h3>
+              <div className="ratings">
+                &#11088;{productDetails?.ratings.toFixed(2)}
+              </div>
 
-              {/* checking if the product already exist in the wishlist */}
-              {wishlistItems
-                ?.map((item) => item.products?._id)
-                .includes(productDetails?._id) ? (
-                <Button
-                  className="add-to-wishlist"
-                  onClick={handleRemoveFromWishlist}
-                >
-                  <FavoriteIcon className="filled-heart-icon" />
-                  <span>WISHLISTED</span>
-                </Button>
-              ) : (
-                <Button
-                  className="add-to-wishlist"
-                  onClick={handleAddToWishlist}
-                >
-                  <FavoriteBorderOutlinedIcon className="heart-icon" />
-                  <span>WISHLIST</span>
-                </Button>
-              )}
-            </div>
-            {/* <div className="accordion-container">
+              <div className="price-section">
+                <div className="selling-price">
+                  <span>₹</span>
+                  <h3>{productDetails?.price}</h3>
+                </div>
+                <p className="actual-price">₹1299</p>
+                <h4 className="offer-percentage">65% OFF</h4>
+              </div>
+              <div className="inclusive-tax-text">inclusive of all taxes</div>
+              <div className="tags">
+                <p className="tag-offer">BUY 3 FOR 999</p>
+                <p className="tag-fabric">100% COTTON</p>
+              </div>
+
+              <div className="colour-options-text">
+                <h5>COLOUR OPTIONS:</h5>&nbsp;&nbsp;&nbsp;
+                <span>{productDetails?.color}</span>
+              </div>
+              <div
+                className="multi-color-block"
+                style={{ backgroundColor: `${productDetails?.color}` }}
+              ></div>
+              <div>
+                <h2 className="select-size-title">Select Size</h2>
+              </div>
+              <div className="size-container">
+                {productDetails?.size?.map((item, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className={`size-item ${
+                        size === item ? "size-border" : ""
+                      }`}
+                      onClick={(e) => handleSizeChange(item, e)}
+                      // style={size ? {backgroundColor:'yellow'} : {backgroundColor:"white"}}
+                    >
+                      {item}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="button-wrapper">
+                {accessToken &&
+                cartItems
+                  ?.map((item) => item.product?._id)
+                  .includes(productDetails?._id) ? (
+                  <Button className="add-to-bag" onClick={handleGoToBag}>
+                    <LocalMallTwoToneIcon />
+                    <span>GO TO BAG</span>
+                  </Button>
+                ) : (
+                  <Button className="add-to-bag">
+                    <LocalMallOutlinedIcon className="bag-icon" />
+                    <span onClick={handleAddItemToCart}>ADD TO BAG</span>
+                  </Button>
+                )}
+
+                {/* checking if the product already exist in the wishlist */}
+                {wishlistItems
+                  ?.map((item) => item.products?._id)
+                  .includes(productDetails?._id) ? (
+                  <Button
+                    className="add-to-wishlist"
+                    onClick={handleRemoveFromWishlist}
+                  >
+                    <FavoriteIcon className="filled-heart-icon" />
+                    <span>WISHLISTED</span>
+                  </Button>
+                ) : (
+                  <Button
+                    className="add-to-wishlist"
+                    onClick={handleAddToWishlist}
+                  >
+                    <FavoriteBorderOutlinedIcon className="heart-icon" />
+                    <span>WISHLIST</span>
+                  </Button>
+                )}
+              </div>
+              {/* <div className="accordion-container">
               <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="1">
+                <Accordion.Item eventKey="0">
                   <Accordion.Header className="accordion-title">
                     <ArticleOutlinedIcon className="accordion-icon" />
                     <div className="accordion-subtitle">
@@ -433,9 +430,10 @@ const ProductInfo = ({ productDetails }) => {
                 <p className="trustbadge-title">SHIPPING GLOBALLY</p>
               </div>
             </div> */}
-          </div>
-        </Col>
-      </Row>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };
