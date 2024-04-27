@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Slider.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { Image } from "react-bootstrap";
 
 const Slider = () => {
-
   const handleDragStart = (e) => {
     e.preventDefault();
   };
@@ -43,12 +42,13 @@ const Slider = () => {
         "https://images.bewakoof.com/uploads/grid/app/NEW-1x1-KnitPerfection-sweater-common-1699625976.jpg",
     },
   ];
+
   return (
     <div className="slider-container">
       <AliceCarousel
         mouseTracking
-        items={items.map((item) => (
-          <div key={item.key}>
+        items={items.map((item, index) => (
+          <div key={item.key} className={index === 1 ? "central-item" : ""}>
             <Image
               src={item.imageSrc}
               onDragStart={handleDragStart}
