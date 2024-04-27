@@ -8,13 +8,16 @@ import Bestsellers from "./bestSellers/Bestsellers";
 import { useNavigate } from "react-router-dom";
 import TrendingCategoriesMen from "./trendingCategories/TrendingCategoriesMen";
 import TrendingCategoriesWomen from "./trendingCategories/TrendingCategoriesWomen";
+// import Carousel from "./slider/Carousel";
+
 const Home = ({ isSearching, setIsSearching }) => {
   // const { products, setProducts } = productsContext();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   return (
     <div className="home-container">
       <>
         <BottomNavbar />
+        {/* <Carousel /> */}
         <Slider />
         <FeaturedProducts />
         <Image
@@ -42,7 +45,7 @@ const Home = ({ isSearching, setIsSearching }) => {
         </div>
 
         <TrendingCategoriesMen />
-        <TrendingCategoriesWomen/>
+        <TrendingCategoriesWomen />
         <Bestsellers />
       </>
     </div>

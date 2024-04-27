@@ -24,5 +24,6 @@
 @media only screen and (max-width: 788px) {
   .product-container {
     justify-content: space-around;
+    
   }
 }

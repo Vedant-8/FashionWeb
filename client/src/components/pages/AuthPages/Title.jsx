@@ -5,7 +5,7 @@ const Title = ({title}) => {
     <>
       <h4 className="login-text">{title}</h4>
         <p className="login-para">
-        for Latest trends, exciting offers and everything Bewakoof®!
+        for Latest trends, exciting offers and everything !
         </p>
               
     </>
