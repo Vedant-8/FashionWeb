@@ -284,3 +284,4 @@ def remove_duplicate_products():
 
         # Delete the remaining duplicate instances
         products_with_same_article_id.exclude(pk=product_to_keep.pk).delete()
+        
