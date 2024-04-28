@@ -35,8 +35,8 @@ export default function SwipeableTemporaryDrawer() {
     right: false,
   });
 
-  const [activeIndexes, setActiveIndexes] = useState([0, 0, 0]);
-  const [drawerWidth, setDrawerWidth] = useState(400); // Adjust drawer width here
+  const [activeIndexes, setActiveIndexes] = useState([0, 0, 0, 0]);
+  const [drawerWidth, setDrawerWidth] = useState(800); // Adjust drawer width here
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -113,7 +113,7 @@ export default function SwipeableTemporaryDrawer() {
               src={images[activeIndexes[carouselIndex]].imgPath}
               alt={images[activeIndexes[carouselIndex]].label}
               style={{
-                width: "100%",
+                width: "30%",
                 borderRadius: "8px",
               }}
             />
@@ -139,7 +139,7 @@ export default function SwipeableTemporaryDrawer() {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           >
-            {[0, 1, 2].map((carouselIndex) => list(anchor, carouselIndex))}
+            {[0, 1, 2, 3].map((carouselIndex) => list(anchor, carouselIndex))}
           </SwipeableDrawer>
           <Button onClick={toggleDrawer(anchor, true)}>Match Fit</Button>
         </React.Fragment>

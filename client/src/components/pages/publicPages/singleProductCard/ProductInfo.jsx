@@ -211,7 +211,12 @@ const ProductInfo = ({ productDetails }) => {
       <Row className="card-row">
         <Col md={6} sm={12} className="product-gallery">
           <div>
-            <ImageGallery
+          <img
+              src="https://images.bewakoof.com/t1080/men-oversize-aop-shirt-18-586207-1693910939-1.jpg"
+              alt="product"
+              width = {400}
+            ></img>
+            {/* <ImageGallery
               items={images}
               thumbnailPosition="left"
               useBrowserFullscreen={false}
@@ -219,7 +224,7 @@ const ProductInfo = ({ productDetails }) => {
               slideOnThumbnailOver={true}
               showFullscreenButton={false}
               loading="lazy"
-            />
+            /> */}
           </div>
         </Col>
         <Col md={5} sm={12} className="details-wrapper">

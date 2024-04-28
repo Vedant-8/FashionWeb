@@ -37,22 +37,22 @@ const Routers = ({ isSearching, setIsSearching }) => {
         <Route path="/:searchTerm" element={<SearchDisplay />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} /> */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/product/:id" element={<SingleProductCard />} />
-        {/* <Route path="/checkout" element={<Checkout />} /> */}
-        {/* <Route path="/account" element={<MyAccount />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/account" element={<MyAccount />} />
         <Route path="/account/orders" element={<OrderHistory />} />
         <Route path="/account/orders/:id" element={<SingleOrder />} />
         <Route path="/:gender/:category" element={<CategoryProduct />} />
-        <Route path="/account/orders/ordersucces" element={<OrderSuccess />} /> */}
+        <Route path="/account/orders/ordersucces" element={<OrderSuccess />} />
         <Route path="/men" element={<Men />} />
-        {/* <Route path="/women" element={<Women />} />
-        <Route path="/winterwear" element={<WinterWear />} /> */}
-        {/* <Route path="/plus-size" element={<PlusSize />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/winterwear" element={<WinterWear />} />
+        <Route path="/plus-size" element={<PlusSize />} />
         <Route path="/newArrivals" element={<NewArrivals />} />
         <Route path="/bestseller" element={<BestsellerFeaturesCategories />} />
-        <Route path="/trending" element={<Trending/>} /> */}
+        <Route path="/trending" element={<Trending />} />
 
         <Route path="*" element={<Error404 />} />
       </Routes>

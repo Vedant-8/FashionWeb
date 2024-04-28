@@ -1,26 +1,29 @@
+/* Default light mode styles */
 .home-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   overflow: auto;
-  height: calc(100%-140px);
+  height: calc(100% - 140px);
 }
+
 .designs-of-the-week-container {
   padding: 10px 0;
   text-align: center;
 }
+
 .designs-of-the-week-container h6 {
   font-weight: 700;
   text-transform: capitalize;
   font-size: 18px;
 }
+
 .designs-of-the-week-container img {
   display: inline-block;
   width: 50%;
   cursor: pointer;
 }
 
-/* trending-categories */
 .trending-categories-title {
   text-align: center;
   font-size: 24px;
@@ -28,17 +31,45 @@
   letter-spacing: 0.7px;
   margin: 5px;
 }
+
 .trending-categories-container {
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   padding: 5px;
 }
+
 .trending-categories-image {
   cursor: pointer;
 }
+
 .tribe-vote-banners img {
   width: 100%;
   margin-top: 5px;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  /* Update background and text colors for dark mode */
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Toggle dark mode by adding 'dark-mode' class to the body element */
+.dark-mode .home-container {
+  /* Update specific styles for dark mode */
+  background-color: #121212;
+}
+
+.dark-mode .designs-of-the-week-container h6 {
+  /* Update specific styles for dark mode */
+  color: #fff;
+}
+
+/* Toggle button styles */
+.dark-mode-toggle {
+  width: 60px;
+  padding: 5px;
+  border-radius: 20px;
+  margin: 5px;
 }

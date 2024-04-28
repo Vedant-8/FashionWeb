@@ -46,21 +46,25 @@ const NavBar = ({ isSearching, setIsSearching }) => {
     <div className="navbar-wrapper">
       <div className="navbar-container">
         <div className="navbar-left-items">
-          <Link to="/">
-            <h1>FashionApp</h1>
-          </Link>
-
-          <DropDown gender="Men" />
-
-          <DropDown gender={"Women"} />
+          <div className="navbar-logo">
+            <Link to="/">
+              <img
+                src="...../assets/images/navbar-logo.png"
+                alt="InsideOut"
+                className="logo"
+                loading="lazy"
+              />
+            </Link>
+          </div>
         </div>
 
         <div className="mobile-screen-menu">
           <MenuIcon className="menubar-icon" onClick={handleMenuBarClick} />
           <Link to="/">
             <img
-              src="https://images.bewakoof.com/web/ic-web-head-bwk-primary-logo-eyes.svg"
-              alt="smallscreen-logo"
+              src="./assests/images/navbar-logo.png"
+              alt="InsideOut"
+              className="logo"
               loading="lazy"
             />
           </Link>
