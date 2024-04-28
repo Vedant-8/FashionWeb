@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Article Details</h1>
+    {% if article %}
+    <h2>Article Information</h2>
+    <p>Article ID: {{ article.article_id }}</p>
+    <p>Product Code: {{ article.product_code }}</p>
+    <p>Product Name: {{ article.prod_name }}</p>
+    <p>Product Type No: {{ article.product_type_no }}</p>
+    <p>Product Type Name: {{ article.product_type_name }}</p>
+    <p>Product Group Name: {{ article.product_group_name }}</p>
+    <p>Graphical Appearance No: {{ article.graphical_appearance_no }}</p>
+    <p>Graphical Appearance Name: {{ article.graphical_appearance_name }}</p>
+    <p>Colour Group Code: {{ article.colour_group_code }}</p>
+    <p>Colour Group Name: {{ article.colour_group_name }}</p>
+    <p>Perceived Colour Value ID: {{ article.perceived_colour_value_id }}</p>
+    <p>Perceived Colour Value Name: {{ article.perceived_colour_value_name }}</p>
+    <p>Perceived Colour Master ID: {{ article.perceived_colour_master_id }}</p>
+    <p>Perceived Colour Master Name: {{ article.perceived_colour_master_name }}</p>
+    <p>Department No: {{ article.department_no }}</p>
+    <p>Department Name: {{ article.department_name }}</p>
+    <p>Index Code: {{ article.index_code }}</p>
+    <p>Index Name: {{ article.index_name }}</p>
+    <p>Index Group No: {{ article.index_group_no }}</p>
+    <p>Index Group Name: {{ article.index_group_name }}</p>
+    <p>Section No: {{ article.section_no }}</p>
+    <p>Section Name: {{ article.section_name }}</p>
+    <p>Garment Group No: {{ article.garment_group_no }}</p>
+    <p>Garment Group Name: {{ article.garment_group_name }}</p>
+    <p>Detail Description: {{ article.detail_desc }}</p>
+    <img src="{{ image_url }}" alt="Article Image">
+    {% endif %}
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

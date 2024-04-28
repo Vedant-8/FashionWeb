@@ -1,2 +1,0 @@
-# FashionWeb
-Fashion recommendation app
